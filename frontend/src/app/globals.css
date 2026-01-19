@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 2, 6, 23;
+  --background-end-rgb: 2, 6, 23;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .neon-border {
+    @apply border border-cyan-400;
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  }
+
+  .neon-text {
+    @apply text-cyan-400;
+    filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.8));
+  }
+
+  .neon-box {
+    @apply backdrop-blur-md border border-cyan-500/50;
+    background-color: rgba(15, 23, 42, 0.5);
+    /* bg-slate-900/50 */
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+  }
+
+  .neon-input {
+    @apply bg-slate-950 border border-slate-700 transition-all duration-300 outline-none text-white placeholder-slate-500;
+  }
+
+  .neon-input:focus {
+    @apply border-cyan-400;
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  }
+
+  .neon-button {
+    @apply bg-cyan-500/10 border border-cyan-500 text-cyan-400 transition-all duration-300 active:scale-95;
+  }
+
+  .neon-button:hover {
+    @apply bg-cyan-500/20;
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.6);
+  }
+}
