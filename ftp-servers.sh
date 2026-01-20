@@ -60,7 +60,8 @@ echo "---------------------------------------------------"
 
 # Wait for user input
 echo -e "${RED}WARNING: Choosing Yes will kill ALL Rclone processes on this server.${NC}"
-read -p "Do you want to stop all instances now? (y/n): " confirm
+read -p "Do you want to stop all instances now? (Y/n): " confirm
+confirm=${confirm:-y}
 
 if [[ "$confirm" =~ ^[Yy]$ ]]; then
     echo -e "${RED}>>> Killing all rclone processes...${NC}"
