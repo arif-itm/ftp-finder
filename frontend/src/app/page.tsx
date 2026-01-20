@@ -10,6 +10,14 @@ interface Stats {
   last_updated: string | null;
 }
 
+const safeDecode = (str: string) => {
+  try {
+    return decodeURIComponent(str);
+  } catch (e) {
+    return str;
+  }
+};
+
 export default function Home() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<any[]>([]);
@@ -118,10 +126,9 @@ export default function Home() {
             <div key={item.id} className="p-4 rounded-xl neon-box hover:bg-slate-900/80 transition-colors">
               <a href={item.original_link} target="_blank" rel="noopener noreferrer" className="block group">
                 <h3 className="text-lg font-semibold text-cyan-300 group-hover:text-cyan-200 truncate">
-                  📁 {item.name}
+                  📁 {safeDecode(item.name)}
                 </h3>
-                <p className="text-sm text-slate-400 truncate">{item.path}</p>
-                <div className="mt-2 text-xs text-slate-500">{item.original_link}</div>
+                <div className="mt-2 text-xs text-slate-500">{safeDecode(item.original_link)}</div>
               </a>
             </div>
           ))}
